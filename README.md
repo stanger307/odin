@@ -1,3 +1,2 @@
-# odin
-# <h2>2odin project</h2>
-# buttons
+# <h2>odin project</h2>
+# <h3>buttons</h3>
