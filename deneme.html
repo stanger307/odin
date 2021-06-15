@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deneme</title>
+</head>
+<body>
+    <div class="text">   <!-- this is in the html-->
+        <p>DENEME</p>
+    </div>
+    <div class="buttons">  
+        <button onclick="alert('Button1')">Method1</button>       <!-- scripted in the html-->
+        <button onclick="alertFunction()">CLICK ME BABY</button>  <!-- scripted in the html-->
+
+        <button id="btn">Method2</button>
+        <button id="btnz">ALERT</button>
+
+        <button id="btn2">Method3</button>
+        <button id="btn2z">WARNING</button>
+
+    </div>
+<script>   // bottom side will be created in DOM. not in the actual html file
+    const buttons = document.querySelector('.buttons');
+    const btn = document.getElementById('btn');
+    const btnz = document.getElementById('btnz');
+    const btn2 = document.querySelector('#btn2');
+    const btn2z = document.querySelector('#btn2z');
+    btn2.addEventListener('click',() =>  alert('Hey'));
+    btn2z.addEventListener('click', alertFunction);
+    buttons.style.backgroundColor = "#FF0034";
+    btn.onclick = () => alert('Sup?');
+    btnz.onclick = alertFunction;
+    function alertFunction(){
+        alert("Congratulations!");
+    }
+
+    btn.addEventListener('click', function (e) {
+        console.log(e);
+    });
+    btn2.addEventListener('click', function (e) {
+        console.log(e.target);
+    });
+    btn2z.addEventListener('click', function (e) {
+        e.target.style.background = '#059EFF';
+    });
+
+    const text_div = document.querySelector('.text');
+    text_div.style.backgroundColor = '#00FFD3';
+
+    const new_para = document.createElement('p');
+    const new_head3 = document.createElement('h3');
+    const new_div2 = document.createElement('div');
+    const new_head1 = document.createElement('h1');
+    const new_para2 = document.createElement('p');
+    const new_div = document.createElement('div');
+    const buttons_div = document.createElement('div');
+    const button1 = document.createElement('button');
+    const button2 = document.createElement('button');
+    const button3 = document.createElement('button');
+
+    
+    
+    // new_div.setAttribute('id', 'theDiv');        ==> new_div.getAttribute('id') => theDiv
+    // new_div.removeAttribute('id');                                              => null
+    new_div.style.backgroundColor = 'gray';
+    new_para.style.color = 'red';
+    new_head3.style.color = 'blue';
+    new_div.classList.add('main');
+    new_div2.classList.add('sub_div');               // ==> new_div.classList.toggle('active') => true  
+    // new_div.classList.remove('new');                                                    => false
+    
+    buttons_div.id = "sub_buttons";
+    button1.id = "1";
+    button2.id = "2";
+    button3.id = "3";
+     
+    button1.textContent = 'Click Me';
+    button2.textContent = 'Click Me';
+    button3.textContent = 'Click Me';
+
+    new_div.innerHTML = "<span>MAIN</span>";        // new_div.textContent = 'Hi Guys!';
+    new_para.textContent = 'Hey I\'m red!';
+    new_head3.textContent = 'Hey I\'m blue!';
+    new_head1.textContent = 'I\'m in a div';
+    new_para2.textContent = 'ME TOO';
+    new_div2.appendChild(new_head1);
+    new_div2.appendChild(new_para2);
+    new_div.appendChild(new_para)
+    new_div.appendChild(new_head3)
+    text_div.appendChild(new_div);
+    new_div.appendChild(new_div2);
+    buttons.appendChild(buttons_div);
+    buttons_div.appendChild(button1);
+    buttons_div.appendChild(button2);
+    buttons_div.appendChild(button3);
+
+    button1.classList.add('sub_btns');
+    button2.classList.add('sub_btns');
+    button3.classList.add('sub_btns');
+
+    const sub_buttons = document.querySelectorAll('.sub_btns');
+
+    sub_buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            alert(button.id);
+        });
+    });
+
+
+</script>    
+</body>
+</html>
